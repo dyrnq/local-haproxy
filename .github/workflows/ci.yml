@@ -69,4 +69,4 @@ jobs:
           --platform linux/amd64,linux/arm64,linux/arm/v7 \
           --output "type=image,push=true" \
           --file ./Dockerfile . \
-          --build-arg BASE_IMAGE=haproxytech/haproxy-debian:${latest}
+          --build-arg BASE_IMAGE=haproxytech/haproxy-debian:${latest} $latest_tag
