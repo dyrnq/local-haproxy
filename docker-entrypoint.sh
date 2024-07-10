@@ -73,13 +73,18 @@ echo "backend ${BACKEND_NAME}"
 echo "  description ${BACKEND_NAME}"
 echo "  mode ${BACKEND_MODE}"
 echo "  balance ${BALANCE}"
-echo "  option ${ADV_CHECK} ${HTTPCHK_PARAMS}"
 ) > /usr/local/etc/haproxy/local.cfg
+
+if [ "${ADV_CHECK}" = "httpchk" ]; then
+echo "  option ${ADV_CHECK} ${HTTPCHK_PARAMS}" >> /usr/local/etc/haproxy/local.cfg
 
 if [ -n "${HTTP_CHECK}" ]; then
     echo "  ${HTTP_CHECK}" >> /usr/local/etc/haproxy/local.cfg
 fi
 
+else
+    echo "  option ${ADV_CHECK}" >> /usr/local/etc/haproxy/local.cfg
+fi
 
 
 IFS=',' read -r -a backend_server_array <<EOF
