@@ -18,6 +18,8 @@ use `bash` and env generate `/usr/local/etc/haproxy/local.cfg` and append `-f /u
 | FRONTEND_NAME                | fronted name                   | frontend_${PORT}             |
 | BACKEND_NAME                 | backend name                   | backend_${PORT}              |
 | MODE                         | mode                           | tcp                          |
+| FRONTEND_MODE                | fronted mode                   | ${MODE}                      |
+| BACKEND_MODE                 | backend mode                   | ${MODE}                      |
 | BALANCE                      | balance                        | roundrobin                   |
 | ADV_CHECK                    | adv_check                      | httpchk                      |
 | HTTP_CHECK                   | http_check                     | http-check expect status 200 |

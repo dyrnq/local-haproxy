@@ -26,6 +26,8 @@ PORT=${PORT:-8443}
 FRONTEND_NAME=${FRONTEND_NAME:-frontend_${PORT}}
 BACKEND_NAME=${BACKEND_NAME:-backend_${PORT}}
 MODE=${MODE:-tcp}
+FRONTEND_MODE=${FRONTEND_MODE:-${MODE}}
+BACKEND_MODE=${BACKEND_MODE:-${MODE}}
 BALANCE=${BALANCE:-roundrobin}
 ADV_CHECK=${ADV_CHECK:-httpchk}
 HTTP_CHECK="${HTTP_CHECK:-http-check expect status 200}"
@@ -62,14 +64,14 @@ fi
 
 (
 echo "frontend ${FRONTEND_NAME}"
-echo "  mode ${MODE}"
+echo "  mode ${FRONTEND_MODE}"
 echo "  bind ${IP_VALUE}:${PORT} name ${FRONTEND_NAME}"
 echo "  default_backend ${BACKEND_NAME}"
 echo ""
 echo ""
 echo "backend ${BACKEND_NAME}"
 echo "  description ${BACKEND_NAME}"
-echo "  mode ${MODE}"
+echo "  mode ${BACKEND_MODE}"
 echo "  balance ${BALANCE}"
 echo "  option ${ADV_CHECK} ${HTTPCHK_PARAMS}"
 ) > /usr/local/etc/haproxy/local.cfg
