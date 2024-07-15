@@ -143,3 +143,9 @@ backend backend_8443
 ```bash
 curl -k https://demo.local:8443/livez
 ```
+
+## ref
+
+- [haproxytech/haproxy-debian](https://hub.docker.com/r/haproxytech/haproxy-debian)
+- [haproxytech/haproxy-docker-debian/blob/main/3.0/Dockerfile](https://github.com/haproxytech/haproxy-docker-debian/blob/main/3.0/Dockerfile)
+- [haproxytech/haproxy-docker-debian/blob/main/3.0/docker-entrypoint.sh](https://github.com/haproxytech/haproxy-docker-debian/blob/main/3.0/docker-entrypoint.sh)
